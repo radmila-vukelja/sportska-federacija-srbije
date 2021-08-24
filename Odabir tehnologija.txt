@@ -1,0 +1,10 @@
+Odabrane tehnologije:
+
+Frontend aplikacija:
+Angular 8
+
+Backend aplikacija:
+Spring Boot
+
+Baza podataka:
+MySql
