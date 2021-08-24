@@ -1,0 +1,27 @@
+Aplikacija ce se koristiti za upravljanje klubovima i njihovim takmicarima.
+
+Specifikacije korisnika:
+
+Mogucnost registracije.
+Potvrda registracije putem emaila.
+Mogucnost logovanja.
+Mogucnost resetovanja sifre putem emaila.
+Mogucnost promene sifre.
+
+Pregled klubova.
+Pregled njihovih takmicara.
+
+Specifikacije Admina:
+
+Mogucnost dodavanja novog sporta.
+Mogucnost dodavanja novih gradova.
+
+Mogucnost dodavanja novih klubova i dodeljivanje sporta i lokacije.
+Prikaz svih klubova i filtriranje po vrsti sporta.
+Mogucnost izmene kluba.
+Mogucnost brisanja kluba.
+
+Mogucnost dodavanja novog clana u odredjeni klub i dodeljivanje njegove lokacije.
+Mogucnost izmene odredjenog clana.
+Mogucnost brisanja clana iz kluba.
+
