@@ -20,38 +20,32 @@ public class LocationController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity getOne(@PathVariable("id") Long id) {
         return new ResponseEntity(this.locationService.getOne(id), HttpStatus.OK);
     }
 
     @GetMapping("/all")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity getAll() {
         return new ResponseEntity(this.locationService.getAll(), HttpStatus.OK);
     }
 
     @PutMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity edit(@RequestBody Location location) {
         return new ResponseEntity(locationService.edit(location), HttpStatus.OK);
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity save(@RequestBody Location location) {
         return new ResponseEntity(this.locationService.insert(location), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity delete(@PathVariable("id") Long id) {
         this.locationService.delete(id);
         return new ResponseEntity(this.locationService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/find-by-name/{name}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity findByName(@PathVariable("name") String name) {
         return new ResponseEntity(this.locationService.findByName(name), HttpStatus.OK);
     }
