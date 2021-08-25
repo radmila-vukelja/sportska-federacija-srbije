@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" id="navbar">
+
+  <mat-toolbar-row>
+    <span class="cursor" (click)="redirectToHome()">
+      Sportska Federacija Srbije
+    </span>
+    <span class="example-spacer"></span>
+    <label class="cursor pr" (click)="logIn()" *ngIf="!userIsLoggedIn">Prijava</label>
+    <label class="cursor pr" (click)="logOut()" *ngIf="userIsLoggedIn">Odjava </label>
+  </mat-toolbar-row>
+</mat-toolbar>
