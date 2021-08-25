@@ -21,32 +21,38 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity getOne(@PathVariable("id") Long id) {
         return new ResponseEntity(this.categoryService.getOne(id), HttpStatus.OK);
     }
 
     @GetMapping("/all")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity getAll() {
         return new ResponseEntity(this.categoryService.getAll(), HttpStatus.OK);
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity edit(@RequestBody Category category) {
         return new ResponseEntity(categoryService.edit(category), HttpStatus.OK);
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity save(@RequestBody Category category) {
         return new ResponseEntity(this.categoryService.insert(category), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity delete(@PathVariable("id") Long id) {
         this.categoryService.delete(id);
         return new ResponseEntity(this.categoryService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/get-categories")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity getDistinctCategories(){
         return new ResponseEntity(this.categoryService.getAll(), HttpStatus.OK);
     }
