@@ -1,8 +1,19 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
 
-//komponente
-import { HeaderComponent } from '../app/components/shared/header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
+/** Dialog component */
+import { DialogComponent } from './components/shared/dialog/dialog.component';
+
+/** Import services */
+import { GuardService } from './service/guard.service';
+import { LoginService } from './service/login.service';
 
 /** Angular material imports  */
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,16 +30,27 @@ import { CdkTreeModule } from '@angular/cdk/tree';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 
+/** Regular components  */
+import { HeaderComponent } from './components/shared/header/header.component';
+import { RegisterComponent } from './components/register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    RegisterComponent,
+    DialogComponent,
   ],
   imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NoopAnimationsModule,
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
+    FormsModule,
     MatButtonModule,
+    HttpClientModule,
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -39,7 +61,13 @@ import { MatRadioModule } from '@angular/material/radio';
     MatCheckboxModule,
     MatRadioModule
   ],
-  providers: [],
+  providers: [
+    GuardService,
+    LoginService,
+    HttpClient,
+    DialogComponent,
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
