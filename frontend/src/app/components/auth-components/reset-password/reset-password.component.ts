@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/service/login.service';
-import { DialogComponent } from '../shared/dialog/dialog.component';
+import { LoginService } from '../../../service/login.service';
+import { DialogComponent } from '../../shared/dialog/dialog.component';
 
 @Component({
   selector: 'app-reset-password',
