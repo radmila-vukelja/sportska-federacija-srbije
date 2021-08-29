@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddClubComponent } from './components/add-club/add-club.component';
+import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add-player-to-a-club.component';
 import { AddSportComponent } from './components/add-sport/add-sport.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
@@ -21,6 +22,8 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'add-club', component: AddClubComponent },
   { path: 'admin-page', component: AdminPageComponent },
+  { path: 'add-player', component: AddPlayerToAClubComponent },
+  { path: 'add-player/:id', component: AddPlayerToAClubComponent },
 ];
 
 @NgModule({

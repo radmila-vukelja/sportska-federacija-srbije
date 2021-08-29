@@ -1,0 +1,73 @@
+
+<div class="container">
+    <div class="login-form">
+        <div class="name-container">
+            <mat-form-field class="full-width">
+                <mat-label>Unesite ime</mat-label>
+                <input matInput placeholder="vase-ime" [(ngModel)]="name">
+            </mat-form-field>
+        </div>
+        <div class="lastname-container">
+            <mat-form-field class="full-width">
+                <mat-label>Unesite prezime</mat-label>
+                <input matInput placeholder="vase prezime" [(ngModel)]="lastName">
+            </mat-form-field>
+        </div>
+
+        <div class="name-container">
+            <mat-form-field class="full-width">
+                <mat-label>Unesite jmbg</mat-label>
+                <input matInput placeholder="1002999256126" [(ngModel)]="jmbg">
+            </mat-form-field>
+        </div>
+
+        <div class="name-container">
+            <mat-form-field class="full-width">
+                <mat-label>Unesite godine igraca</mat-label>
+                <input matInput placeholder="23" [(ngModel)]="age">
+            </mat-form-field>
+        </div>
+
+        <h4 class="text-center">Izaberite lokaciju</h4>
+        <mat-form-field appearance="fill" class="dropdown-style">
+            <mat-label class="text-center">Izaberite lokaciju</mat-label>
+            <mat-select>
+                <mat-option class="text-center" *ngFor="let value of locations" [value]="value.name"
+                    (click)="chooseLocation(value)">
+                    {{value.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <h4 class="text-center">Izaberite pol</h4>
+        <mat-form-field appearance="fill" class="dropdown-style">
+            <mat-label class="text-center">Pol</mat-label>
+            <mat-select>
+                <mat-option class="text-center" *ngFor="let gender of genders" [value]="gender.value"
+                    (click)="chooseGender(gender)">
+                    {{gender.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <h4 class="text-center">Izaberite Kategoriju</h4>
+        <ng-container *ngIf="categories">
+            <mat-form-field appearance="fill" class="dropdown-style">
+                <mat-label class="text-center">Izaberite katerogiju</mat-label>
+                <mat-select>
+                    <mat-option class="text-center" *ngFor="let category of categories"
+                        [value]="category.name" (click)="chooseCategory(category)">
+                        {{category.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </ng-container>
+
+        <div class="button-container">
+            <button class="button-primary" mat-raised-button color="primary" (click)="addPlayerToAClub()">
+                Unesite Igraca U Klub
+            </button>
+        </div>
+
+    </div>
+</div>
