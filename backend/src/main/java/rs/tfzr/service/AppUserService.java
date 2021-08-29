@@ -70,4 +70,14 @@ public class AppUserService {
             return false;
         }
     }
+
+    public AppUser changePassword(String email, String newPassword, String oldPassword) {
+        AppUser appUser = this.appUserRepository.findByEmail(email);
+        if (appUser.getPassword().equals(oldPassword)) {
+            appUser.setPassword(newPassword);
+            return this.appUserRepository.save(appUser);
+        } else {
+            return null;
+        }
+    }
 }
