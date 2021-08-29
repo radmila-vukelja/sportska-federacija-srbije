@@ -9,9 +9,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import rs.tfzr.model.AppUser;
 import rs.tfzr.model.Role;
+import rs.tfzr.model.dto.EmailMessage;
 import rs.tfzr.repository.AppUserRepository;
 import rs.tfzr.repository.RoleRepository;
+import rs.tfzr.service.utils.EmailService;
+import rs.tfzr.service.utils.StringGenerator;
 
+import javax.mail.MessagingException;
 import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.List;
@@ -22,11 +26,15 @@ import java.util.Set;
 public class AppUserService {
 
     private AppUserRepository appUserRepository;
+    private StringGenerator stringGenerator;
+    private EmailService emailService;
     private RoleRepository roleRepository;
 
     @Autowired
-    public AppUserService(AppUserRepository appUserRepository, RoleRepository roleRepository) {
+    public AppUserService(AppUserRepository appUserRepository, RoleRepository roleRepository, EmailService emailService) {
+        this.stringGenerator = new StringGenerator();
         this.appUserRepository = appUserRepository;
+        this.emailService = emailService;
         this.roleRepository = roleRepository;
     }
 
@@ -56,7 +64,17 @@ public class AppUserService {
     public AppUser registrujSe(AppUser appUser) {
         List<Role> roles = this.roleRepository.findAll();
         appUser.setRole(roles.get(1));
+        String randomGeneratedString = stringGenerator.nextString();
+        appUser.setEmailConfirmationString(randomGeneratedString);
+        appUser.setEmailIsConfirmed(false);
         AppUser savedAppUser = appUserRepository.save(appUser);
+        EmailMessage emailMessage = emailService.createEmailConfirmationMessage(appUser);
+
+        try {
+            emailService.sendEmail(emailMessage);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
         return savedAppUser;
     }
 
@@ -79,5 +97,19 @@ public class AppUserService {
         } else {
             return null;
         }
+    }
+
+    public boolean resetPassword(String email) {
+        String randomGeneratedString = stringGenerator.nextString();
+        AppUser appUser = this.appUserRepository.findByEmail(email);
+        appUser.setPassword(randomGeneratedString);
+        this.appUserRepository.save(appUser);
+        EmailMessage emailMessage = emailService.createResetPasswordMessage(appUser);
+        try {
+            this.emailService.sendEmail(emailMessage);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }

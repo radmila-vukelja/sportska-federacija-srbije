@@ -40,4 +40,10 @@ public class AppUserController {
         return new ResponseEntity(appUserService.changePassword(email, newPassword, oldPassword), HttpStatus.OK);
     }
 
+    @GetMapping("/reset-password/{email}")
+    public ResponseEntity resetPassword(@PathVariable("email") String email) {
+        System.out.println("Reset password for: " + email);
+        return new ResponseEntity(appUserService.resetPassword(email), HttpStatus.OK);
+    }
+
 }

@@ -49,4 +49,16 @@ public class EmailService {
         System.out.println(emailMessage.toString());
         return emailMessage;
     }
+
+    public EmailMessage createResetPasswordMessage(AppUser user) {
+
+        String url = "http://localhost:4200/change-password";
+        String text = "Vasa sifra je resetovana. \nOvo je vasa nova sifra " + user.getPassword();
+        String htmlText = "<html><head></head><body style=\"background-color: #e4e5f1;display:flex; justify-content: center; align-items: center; flex-direction: column; height:100%; width:100%;\"><div style=\"display:flex; justify-content: center; align-items: center; height: 400px; width: 480px;  margin: 10px;\"> " + text + " <a href=\"" + url + "\">Kliknite ovde da bi ste promenili sifru</a></div></body></html>";
+
+        //remember to change the password before sending him his actuall password
+        String subject = "Resetovanje sifre!";
+        return new EmailMessage(user.getEmail(), subject, htmlText);
+    }
+
 }
