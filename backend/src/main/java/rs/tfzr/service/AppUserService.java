@@ -59,4 +59,15 @@ public class AppUserService {
         AppUser savedAppUser = appUserRepository.save(appUser);
         return savedAppUser;
     }
+
+    public boolean confirmCode(String code) {
+        AppUser appUser = this.appUserRepository.findByEmailConfirmationString(code);
+        if (appUser != null) {
+            appUser.setEmailIsConfirmed(true);
+            this.appUserRepository.save(appUser);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

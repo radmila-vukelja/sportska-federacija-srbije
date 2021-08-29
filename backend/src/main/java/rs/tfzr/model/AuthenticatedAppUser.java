@@ -1,21 +1,20 @@
 package rs.tfzr.model;
 
-import javax.persistence.Column;
-import java.util.List;
-
 public class AuthenticatedAppUser {
 
     private Long id;
     private String username;
     private String role;
+    private Boolean emailIsConfirmed;
 
     public AuthenticatedAppUser() {
     }
 
-    public AuthenticatedAppUser(Long id, String username, String role) {
+    public AuthenticatedAppUser(Long id, String username, String role, Boolean emailIsConfirmed) {
         this.id = id;
         this.username = username;
         this.role = role;
+        this.emailIsConfirmed = emailIsConfirmed;
     }
 
     public String getUsername() {
@@ -40,5 +39,13 @@ public class AuthenticatedAppUser {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Boolean getEmailIsConfirmed() {
+        return emailIsConfirmed;
+    }
+
+    public void setEmailIsConfirmed(Boolean emailIsConfirmed) {
+        this.emailIsConfirmed = emailIsConfirmed;
     }
 }

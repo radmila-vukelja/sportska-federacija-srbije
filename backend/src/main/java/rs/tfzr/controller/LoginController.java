@@ -36,8 +36,7 @@ public class LoginController {
         AppUser currentAppUser = appUserRepository.findByUserName(authentication.getName());
 
         AuthenticatedAppUser korisnik = new AuthenticatedAppUser(
-                currentAppUser.getId(), authentication.getName(), roles.get(0));
+                currentAppUser.getId(), authentication.getName(), roles.get(0), currentAppUser.getEmailIsConfirmed());
         return korisnik;
     }
-
 }

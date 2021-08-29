@@ -29,8 +29,13 @@ public class AppUser {
     @Column(nullable = false)
     private String password;
 
+    @Column
+    private Boolean emailIsConfirmed;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @Column
+    private String emailConfirmationString;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Role role;
 
     public AppUser() {
@@ -48,32 +53,16 @@ public class AppUser {
         return userName;
     }
 
-    public void setUserName(String korisnickoIme) {
-        this.userName = korisnickoIme;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String sifra) {
-        this.password = sifra;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String ime) {
-        this.name = ime;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String prezime) {
-        this.lastName = prezime;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -82,6 +71,38 @@ public class AppUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEmailIsConfirmed() {
+        return emailIsConfirmed;
+    }
+
+    public void setEmailIsConfirmed(Boolean emailIsConfirmed) {
+        this.emailIsConfirmed = emailIsConfirmed;
+    }
+
+    public String getEmailConfirmationString() {
+        return emailConfirmationString;
+    }
+
+    public void setEmailConfirmationString(String emailConfirmationString) {
+        this.emailConfirmationString = emailConfirmationString;
     }
 
     public Role getRole() {
@@ -102,6 +123,8 @@ public class AppUser {
                 ", email='" + email + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", password='" + password + '\'' +
+                ", emailIsConfirmed=" + emailIsConfirmed +
+                ", emailConfirmationString='" + emailConfirmationString + '\'' +
                 ", role=" + role +
                 '}';
     }
