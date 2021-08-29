@@ -38,6 +38,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AddSportComponent } from './components/add-sport/add-sport.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     AddSportComponent,
     HomeComponent,
     ChangePasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
