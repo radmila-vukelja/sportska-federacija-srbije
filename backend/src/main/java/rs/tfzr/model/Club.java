@@ -3,6 +3,7 @@ package rs.tfzr.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "club")
@@ -27,6 +28,9 @@ public class Club {
 
     @Column
     private Long numberOfMembers;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Player> playerList;
 
     @ManyToOne
     private SportType sportType;
@@ -82,6 +86,14 @@ public class Club {
         this.numberOfMembers = numberOfMembers;
     }
 
+    public List<Player> getPlayerList() {
+        return playerList;
+    }
+
+    public void setPlayerList(List<Player> playerList) {
+        this.playerList = playerList;
+    }
+
     public SportType getSportType() {
         return sportType;
     }
@@ -99,6 +111,7 @@ public class Club {
                 ", owner='" + owner + '\'' +
                 ", contactEmail='" + contactEmail + '\'' +
                 ", numberOfMembers=" + numberOfMembers +
+                ", playerList=" + playerList +
                 ", sportType=" + sportType +
                 '}';
     }
