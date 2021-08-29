@@ -34,12 +34,5 @@ public class AppUserController {
         return new ResponseEntity(appUserService.findAll(), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/ban-user/{id}")
-    public ResponseEntity banUser(@PathVariable("id") Long id) {
-        System.out.println("Ban User");
-        appUserService.banUser(id);
-        return new ResponseEntity(appUserService.findAll(), HttpStatus.OK);
-    }
 
 }
