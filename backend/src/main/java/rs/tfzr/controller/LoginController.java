@@ -27,16 +27,15 @@ public class LoginController {
 
     @RequestMapping("/user")
     public AuthenticatedAppUser getUser(Authentication authentication) {
-        System.out.println("login");
+        System.out.println("Korisnik " + authentication.getName() + " pokusava da se uloguje");
         List<String> roles = new ArrayList<>();
         for (GrantedAuthority authority : authentication.getAuthorities()) {
             roles.add(authority.getAuthority());
         }
 
         AppUser currentAppUser = appUserRepository.findByUserName(authentication.getName());
-
         AuthenticatedAppUser korisnik = new AuthenticatedAppUser(
-                currentAppUser.getId(), authentication.getName(), roles.get(0), currentAppUser.getEmailIsConfirmed());
+                currentAppUser.getId(), authentication.getName(), roles.get(0), currentAppUser.getEmailIsConfirmed(), currentAppUser.getUserIsBanned());
         return korisnik;
     }
 }

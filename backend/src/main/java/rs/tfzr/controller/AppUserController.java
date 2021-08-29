@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import rs.tfzr.model.AppUser;
 import rs.tfzr.service.AppUserService;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/user")
@@ -19,6 +21,12 @@ public class AppUserController {
     @Autowired
     public AppUserController(AppUserService appUserService) {
         this.appUserService = appUserService;
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    @GetMapping
+    public List<AppUser> findAll() {
+        return appUserService.findAll();
     }
 
     @PostMapping("/registration")
@@ -44,6 +52,22 @@ public class AppUserController {
     public ResponseEntity resetPassword(@PathVariable("email") String email) {
         System.out.println("Reset password for: " + email);
         return new ResponseEntity(appUserService.resetPassword(email), HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/ban-user/{id}")
+    public ResponseEntity banUser(@PathVariable("id") Long id) {
+        System.out.println("Ban User");
+        appUserService.banUser(id);
+        return new ResponseEntity(appUserService.findAll(), HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/unban-user/{id}")
+    public ResponseEntity unBanUser(@PathVariable("id") Long id) {
+        System.out.println("unban User");
+        appUserService.unBanUser(id);
+        return new ResponseEntity(appUserService.findAll(), HttpStatus.OK);
     }
 
 }

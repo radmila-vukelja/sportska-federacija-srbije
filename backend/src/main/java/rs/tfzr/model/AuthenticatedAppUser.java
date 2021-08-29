@@ -6,15 +6,17 @@ public class AuthenticatedAppUser {
     private String username;
     private String role;
     private Boolean emailIsConfirmed;
+    private Boolean userIsBanned;
 
     public AuthenticatedAppUser() {
     }
 
-    public AuthenticatedAppUser(Long id, String username, String role, Boolean emailIsConfirmed) {
+    public AuthenticatedAppUser(Long id, String username, String role, Boolean emailIsConfirmed, Boolean userIsBanned) {
         this.id = id;
         this.username = username;
         this.role = role;
         this.emailIsConfirmed = emailIsConfirmed;
+        this.userIsBanned = userIsBanned;
     }
 
     public String getUsername() {
@@ -47,5 +49,13 @@ public class AuthenticatedAppUser {
 
     public void setEmailIsConfirmed(Boolean emailIsConfirmed) {
         this.emailIsConfirmed = emailIsConfirmed;
+    }
+
+    public Boolean getUserIsBanned() {
+        return userIsBanned;
+    }
+
+    public void setUserIsBanned(Boolean userIsBanned) {
+        this.userIsBanned = userIsBanned;
     }
 }

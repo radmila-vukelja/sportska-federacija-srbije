@@ -35,7 +35,10 @@ public class AppUser {
     @Column
     private String emailConfirmationString;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @Column
+    private Boolean userIsBanned;
+
+    @ManyToOne(cascade=CascadeType.ALL)
     private Role role;
 
     public AppUser() {
@@ -53,16 +56,32 @@ public class AppUser {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String korisnickoIme) {
+        this.userName = korisnickoIme;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String sifra) {
+        this.password = sifra;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String ime) {
+        this.name = ime;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String prezime) {
+        this.lastName = prezime;
     }
 
     public String getEmail() {
@@ -71,22 +90,6 @@ public class AppUser {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Boolean getEmailIsConfirmed() {
@@ -113,6 +116,13 @@ public class AppUser {
         this.role = role;
     }
 
+    public Boolean getUserIsBanned() {
+        return userIsBanned;
+    }
+
+    public void setUserIsBanned(Boolean userIsBanned) {
+        this.userIsBanned = userIsBanned;
+    }
 
     @Override
     public String toString() {
@@ -125,6 +135,7 @@ public class AppUser {
                 ", password='" + password + '\'' +
                 ", emailIsConfirmed=" + emailIsConfirmed +
                 ", emailConfirmationString='" + emailConfirmationString + '\'' +
+                ", userIsBanned=" + userIsBanned +
                 ", role=" + role +
                 '}';
     }
