@@ -27,7 +27,7 @@ export class AdminPageComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.loginService.user)
     if (!this.loginService.isUserLoggedIn()) {
-      //this.router.navigate(['login']);
+      this.router.navigate(['login']);
     }
     this.getAllUsers();
   }

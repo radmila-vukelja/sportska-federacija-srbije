@@ -41,6 +41,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AddClubComponent } from './components/add-club/add-club.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add-player-to-a-club.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     ResetPasswordComponent,
     AddClubComponent,
     AdminPageComponent,
+    AddPlayerToAClubComponent,
   ],
   imports: [
     BrowserModule,
