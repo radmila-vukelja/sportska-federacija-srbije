@@ -40,6 +40,7 @@ import { HomeComponent } from './components/shared/home/home.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { AddClubComponent } from './components/add-club/add-club.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AddClubComponent } from './components/add-club/add-club.component';
     ChangePasswordComponent,
     ResetPasswordComponent,
     AddClubComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,
