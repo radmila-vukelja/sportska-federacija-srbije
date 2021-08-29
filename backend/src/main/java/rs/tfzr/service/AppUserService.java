@@ -112,4 +112,16 @@ public class AppUserService {
         }
         return true;
     }
+
+    public void banUser(Long id) {
+        AppUser appUser = this.appUserRepository.getOne(id);
+        appUser.setUserIsBanned(true);
+        this.appUserRepository.save(appUser);
+    }
+
+    public void unBanUser(Long id) {
+        AppUser appUser = this.appUserRepository.getOne(id);
+        appUser.setUserIsBanned(false);
+        this.appUserRepository.save(appUser);
+    }
 }
