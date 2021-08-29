@@ -32,21 +32,23 @@ import { MatRadioModule } from '@angular/material/radio';
 
 /** Regular components  */
 import { HeaderComponent } from './components/shared/header/header.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/auth-components/register/register.component';
 import { LocationsComponent } from './components/locations/locations.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/auth-components/login/login.component';
 import { AddSportComponent } from './components/add-sport/add-sport.component';
 import { HomeComponent } from './components/shared/home/home.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './components/auth-components/change-password/change-password.component';
+import { ResetPasswordComponent } from './components/auth-components/reset-password/reset-password.component';
 import { AddClubComponent } from './components/add-club/add-club.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add-player-to-a-club.component';
+import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
+import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent, 
     RegisterComponent,
     DialogComponent,
     LocationsComponent,
@@ -58,6 +60,8 @@ import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add
     AddClubComponent,
     AdminPageComponent,
     AddPlayerToAClubComponent,
+    SeeAllClubMembersComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

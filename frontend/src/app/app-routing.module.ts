@@ -4,12 +4,13 @@ import { AddClubComponent } from './components/add-club/add-club.component';
 import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add-player-to-a-club.component';
 import { AddSportComponent } from './components/add-sport/add-sport.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ChangePasswordComponent } from './components/auth-components/change-password/change-password.component';
 import { LocationsComponent } from './components/locations/locations.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { LoginComponent } from './components/auth-components/login/login.component';
+import { RegisterComponent } from './components/auth-components/register/register.component';
+import { ResetPasswordComponent } from './components/auth-components/reset-password/reset-password.component';
 import { HomeComponent } from './components/shared/home/home.component';
+import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
 
 const routes: Routes = [
   { path: '', component: RegisterComponent },
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'admin-page', component: AdminPageComponent },
   { path: 'add-player', component: AddPlayerToAClubComponent },
   { path: 'add-player/:id', component: AddPlayerToAClubComponent },
+  { path: 'all-club-players', component: SeeAllClubMembersComponent },
+  { path: 'all-club-players/:id', component: SeeAllClubMembersComponent },
 ];
 
 @NgModule({
