@@ -11,8 +11,10 @@ import { RegisterComponent } from './components/auth-components/register/registe
 import { ResetPasswordComponent } from './components/auth-components/reset-password/reset-password.component';
 import { HomeComponent } from './components/shared/home/home.component';
 import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
+import { AllClubsUserComponent } from './components/user-role-components/all-clubs-user/all-clubs-user.component';
 
 const routes: Routes = [
+  
   { path: '', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'add-player/:id', component: AddPlayerToAClubComponent },
   { path: 'all-club-players', component: SeeAllClubMembersComponent },
   { path: 'all-club-players/:id', component: SeeAllClubMembersComponent },
+  { path: 'user-all-clubs', component: AllClubsUserComponent },
+
 ];
 
 @NgModule({

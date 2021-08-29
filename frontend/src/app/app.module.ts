@@ -44,6 +44,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add-player-to-a-club.component';
 import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
 import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-dialog.component';
+import { AllClubsUserComponent } from './components/user-role-components/all-clubs-user/all-clubs-user.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-
     AddPlayerToAClubComponent,
     SeeAllClubMembersComponent,
     DeleteDialogComponent,
+    AllClubsUserComponent,
   ],
   imports: [
     BrowserModule,
