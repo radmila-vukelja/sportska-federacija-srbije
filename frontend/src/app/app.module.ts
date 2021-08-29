@@ -45,6 +45,7 @@ import { AddPlayerToAClubComponent } from './components/add-player-to-a-club/add
 import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
 import { DeleteDialogComponent } from './components/shared/delete-dialog/delete-dialog.component';
 import { AllClubsUserComponent } from './components/user-role-components/all-clubs-user/all-clubs-user.component';
+import { AllClubsComponent } from './components/all-clubs/all-clubs.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { AllClubsUserComponent } from './components/user-role-components/all-clu
     SeeAllClubMembersComponent,
     DeleteDialogComponent,
     AllClubsUserComponent,
+    AllClubsComponent,
   ],
   imports: [
     BrowserModule,
