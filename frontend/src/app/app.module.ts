@@ -33,6 +33,7 @@ import { MatRadioModule } from '@angular/material/radio';
 /** Regular components  */
 import { HeaderComponent } from './components/shared/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LocationsComponent } from './components/locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RegisterComponent } from './components/register/register.component';
     HeaderComponent,
     RegisterComponent,
     DialogComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,
