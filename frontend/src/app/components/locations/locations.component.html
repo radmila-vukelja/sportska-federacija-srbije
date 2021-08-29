@@ -1,0 +1,27 @@
+<div class="page-container">
+    <div class="form-container border">
+        <div>
+            <h4 class="text-center">Postojece lokacije</h4>
+            <mat-form-field appearance="fill" class="dropdown-style">
+                <mat-label class="text-center">Izaberite lokaciju</mat-label>
+                <mat-select>
+                    <mat-option class="text-center" *ngFor="let value of locations" [value]="value.name">
+                        {{value.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <h4 class="text-center">Mozete dodati novu lokaciju</h4>
+            <mat-form-field class="full-width">
+                <mat-label class="text-center">Unesite Naziv Lokacije</mat-label>
+                <input matInput placeholder="Zrenjanin" [(ngModel)]="name">
+            </mat-form-field>
+
+            <div class="button-container">
+                <button class="button-primary" (click)="addLocation()" mat-raised-button color="primary">
+                    Dodaj Lokaciju</button>
+            </div>
+        </div>
+    </div>
+</div>
