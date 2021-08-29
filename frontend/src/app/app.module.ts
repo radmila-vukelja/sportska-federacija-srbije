@@ -35,6 +35,8 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LocationsComponent } from './components/locations/locations.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddSportComponent } from './components/add-sport/add-sport.component';
+import { HomeComponent } from './components/shared/home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { LoginComponent } from './components/login/login.component';
     DialogComponent,
     LocationsComponent,
     LoginComponent,
+    AddSportComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
