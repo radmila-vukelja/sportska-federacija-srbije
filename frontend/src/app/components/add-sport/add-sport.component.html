@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div class="left-page-side border">
+        <div class="add-club-name-form">
+            <mat-form-field class="full-width">
+                <mat-label class="text-center">Unesite Naziv Sporta</mat-label>
+                <input matInput placeholder="Kosarka" [(ngModel)]="sportName">
+            </mat-form-field>
+
+
+            <div class="sport-type-section">
+                <label class="example-margin">Sport je: </label>
+
+                <mat-radio-group [(ngModel)]="teamSport">
+                    <mat-radio-button class="example-margin" value="team">Timski</mat-radio-button>
+                    <mat-radio-button class="example-margin" value="individual">Pojedinacni</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="button-container">
+                <button class="button-primary" (click)="addSportType()" mat-raised-button color="primary">
+                    Dodaj sport</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle-page-side border">
+
+        <h4 class="full-width">Izaberite Pol Kategorije</h4>
+        <mat-form-field appearance="fill" class="full-width dropdown-style">
+            <mat-label class="full-width text-center">Izaberite Pol</mat-label>
+            <mat-select>
+                <mat-option class="full-width text-center" *ngFor="let gender of genders" [value]="gender.value"
+                    (click)="chooseGender(gender.value)">
+                    {{gender.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label class="text-center">Unesite Naziv Kategorije</mat-label>
+            <input matInput placeholder="Junior" [(ngModel)]="categoryName">
+        </mat-form-field>
+
+        <div class="button-container">
+            <button class="button-primary" (click)="addCategoryToAList()" mat-raised-button color="primary">
+                Dodaj Kategoriju U Listu</button>
+        </div>
+    </div>
+
+    <div class="right-page-side border">
+        <h4 class="full-width">Kliknite da vidite vase kategorije</h4>
+        <mat-form-field appearance="fill" class="full-width dropdown-style">
+            <mat-label class="full-width text-center">Unete kategorije</mat-label>
+            <mat-select>
+                <mat-option class="full-width text-center" *ngFor="let category of categoryList" [value]="category.name"
+                    (click)="chooseCategory(category)">
+                    <div class="categories-text">
+                        <label>{{'Naziv: ' + category.name}} </label>
+                        <label></label>
+                        <label> {{' Pol: ' + category.gender}} </label>
+                    </div>
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="button-container">
+            <button class="button-primary" (click)="deleteCategoryFromAList()" mat-raised-button color="primary">
+                Izbrisi izabranu kategoriju iz liste</button>
+        </div>
+    </div>
+
+
+</div>

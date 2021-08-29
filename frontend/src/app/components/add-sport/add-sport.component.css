@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    margin: 15px;
+}
+
+.sport-name-container {
+    width: 200px;
+    height: 350px;
+}
+
+.left-page-side {
+    width: 25%;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.right-page-side {
+    width: 25%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.middle-page-side {
+    width: 25%;
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.border {
+    border: 2px solid rgb(16, 7, 48);
+    border-radius: 12px;
+}
+
+.add-club-name-form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.categories-text {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.button-container {
+    padding: 15px;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.inputs {}
+
+.full-width {
+    width: 100%;
+    text-align: center;
+}
+
+.half-width {
+    width: 50%;
+    text-align: center;
+}
+
+.example-h2 {
+    margin: 10px;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.example-margin {
+    margin: 15px;
+}
+
+.sport-type-section{
+    display: flex;
+    flex-direction: column;
+}
