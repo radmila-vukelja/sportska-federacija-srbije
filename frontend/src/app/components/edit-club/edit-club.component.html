@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="form-container">
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Unesite Naziv Kluba</mat-label>
+                <input matInput placeholder="Naziv Kluba" [(ngModel)]="name">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Unesite Predsednika Kluba</mat-label>
+                <input matInput placeholder="Petar Petrovic" [(ngModel)]="owner">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="full-width">
+                <mat-label>Unesite Kontakt Email</mat-label>
+                <input matInput placeholder="kontakt@klub.com" [(ngModel)]="contactEmail">
+            </mat-form-field>
+        </div>
+ 
+        <div class="full-width">
+            <h4 class="text-center full-width">Izaberite Tip Sporta</h4>
+            <ng-container *ngIf="sportType">
+                <mat-form-field appearance="fill" class="full-width dropdown-style">
+                    <mat-label class="full-width text-center">Vrsta Sporta</mat-label>
+                    <mat-select [(value)]="sportType.sport">
+                        <mat-option class="full-width text-center" *ngFor="let sportType of sportTypes"
+                            [value]="sportType.sport" (click)="chooseSportType(sportType)">
+                            {{sportType.sport + ' (' + (sportType.teamSport ? 'Timski' : 'Individualni') + ' sport)'}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-container>
+        </div>
+        <div class="full-width">
+            <h4 class="text-center full-width">Izaberite lokaciju</h4>
+            <ng-container *ngIf="location">
+                <mat-form-field appearance="fill" class="full-width dropdown-style">
+                    <mat-label class="full-width text-center">Izaberite lokaciju</mat-label>
+                    <mat-select [(value)]="location.name">
+                        <mat-option class="full-width text-center" *ngFor="let value of locations" [value]="value.name"
+                            (click)="chooseLocation(value)">
+                            {{value.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-container>
+        </div>
+        <button class="button-primary" mat-raised-button color="primary" (click)="editClub()"> Izmeni Klub
+        </button>
+    </div>
+</div>
