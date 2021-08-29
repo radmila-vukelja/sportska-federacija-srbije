@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from './components/auth-components/reset-passw
 import { HomeComponent } from './components/shared/home/home.component';
 import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
 import { AllClubsUserComponent } from './components/user-role-components/all-clubs-user/all-clubs-user.component';
+import { ListPlayersComponent } from './components/user-role-components/list-players/list-players.component';
 
 const routes: Routes = [
   
@@ -30,6 +31,8 @@ const routes: Routes = [
   { path: 'all-club-players', component: SeeAllClubMembersComponent },
   { path: 'all-club-players/:id', component: SeeAllClubMembersComponent },
   { path: 'user-all-clubs', component: AllClubsUserComponent },
+  { path: 'user-all-club-players', component: ListPlayersComponent },
+  { path: 'user-all-club-players/:id', component: ListPlayersComponent },
 
 ];
 

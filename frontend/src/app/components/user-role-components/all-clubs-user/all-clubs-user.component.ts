@@ -15,6 +15,7 @@ import { SportType } from '../../../model/sport-type';
   styleUrls: ['./all-clubs-user.component.css']
 })
 export class AllClubsUserComponent implements OnInit {
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   displayedColumns: string[] = ['id', 'name', 'location', 'owner', 'contactEmail', 'numberOfMembers', 'sportType', 'allMembers'];
