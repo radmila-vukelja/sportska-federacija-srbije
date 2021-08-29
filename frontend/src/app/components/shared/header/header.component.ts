@@ -17,19 +17,43 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.loginService.isUserLoggedIn()) {
+      this.userIsLoggedIn = true;
+      this.router.navigate(['home']);
+    } else {
+      this.userIsLoggedIn = false;
+    }
+    this.routeWatcher();
   }
 
+  routeWatcher() {
+    setInterval(() => {
+      this.router.events.subscribe(() => {
+        this.userIsLoggedIn = this.loginService.isUserLoggedIn();
+      });
+    }, 2500)
+
+  }
 
   logIn() {
-
+    this.router.navigate(['login']);
   }
 
   logOut() {
-
+    this.loginService.logout();
   }
 
   redirectToHome() {
+    this.loginService.redirectHome();
+  }
 
+
+  addContestant() {
+    this.loginService.addContestant();
+  }
+  
+  addNewClub() {
+    this.loginService.addNewClub();
   }
 
 }

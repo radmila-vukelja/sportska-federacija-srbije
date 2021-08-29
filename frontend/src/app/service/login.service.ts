@@ -22,8 +22,24 @@ export class LoginService {
     public dialog: MatDialog
   ) { }
 
+  resetPassword(email: string) {
+    return this.http.get(this.apiUrl + 'user/reset-password/' + email);
+  }
+
+  changePassword(email, newPassword, oldPassword) {
+    return this.http.get(this.apiUrl + 'user/change-password/' + email + '/' + newPassword + '/' + oldPassword);
+  }
+
   getAllUsers() {
     return this.http.get<User[]>(this.apiUrl + 'user/all-users', { headers: this.getHeaders() });
+  }
+
+  banUser(id) {
+    return this.http.get<User[]>(this.apiUrl + 'user/ban-user/' + id, { headers: this.getHeaders() });
+  }
+
+  unBanUser(id) {
+    return this.http.get<User[]>(this.apiUrl + 'user/unban-user/' + id, { headers: this.getHeaders() });
   }
 
   getHeaders() {
@@ -39,6 +55,36 @@ export class LoginService {
     }
   }
 
+  login(korisnickoIme: string, sifra: string) {
+    this.user = new User();
+    const base64Kredencijali = btoa(korisnickoIme + ':' + sifra);
+    localStorage.setItem('credentials', btoa(korisnickoIme + ':' + sifra));
+    const headers = new HttpHeaders({ authorization: 'Basic ' + base64Kredencijali });
+    return this.http.get<any>(this.apiUrl + 'auth/user', { headers: headers }).subscribe(data => {
+      console.log(data);
+      if (!data.emailIsConfirmed) {
+        return this.openDialog('Morate da potvrdite vas nalog! Proverite email!', '350px', '300px', false);
+      }
+      if (data.userIsBanned) {
+        return this.openDialog('Zabranjen vam je ulazak na sajt.', '350px', '300px', false);
+      }
+      this.user = data;
+      localStorage.setItem('user', JSON.stringify(this.user));
+      this.headers = headers;
+      this.userIsLoggedIn = true;
+      this.setRoleToLocalStorage(data.role);
+      if (data.role === "ROLE_USER") {
+        this.router.navigate(['user-all-clubs']);
+      } else {
+        this.router.navigate(['home']);
+      }
+
+    },
+      error => {
+        this.openDialog('Ne postoji korisnik sa tim kredencijalima', '350px', '300px', false);
+      });
+  }
+
   setRoleToLocalStorage(role) {
     localStorage.setItem('role', role);
   }
@@ -49,6 +95,18 @@ export class LoginService {
 
   register(user: User) {
     return this.http.post(this.apiUrl + 'user/registration', user)
+  }
+
+  logout() {
+    this.userIsLoggedIn = false;
+    this.user = null;
+    this.headers = null;
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
+  public isUserLoggedIn() {
+    return this.getHeaders();
   }
 
   openDialog(text: string, height: string, width: string, action: boolean) {
@@ -63,7 +121,19 @@ export class LoginService {
   }
 
   redirectHome() {
-    this.router.navigate(['home'])
+    if (this.getRoleFromLocalStorage() === "ROLE_ADMIN") {
+      this.router.navigate(['home'])
+    } else {
+      this.router.navigate(['user-all-clubs'])
+    }
+  }
+
+  addContestant() {
+    this.router.navigate(['add-contestant'])
+  }
+
+  addNewClub() {
+    this.router.navigate(['add-club'])
   }
 
 }
