@@ -1,0 +1,26 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    width: 480px;
+    border: 2px solid rgb(113, 132, 219);
+    border-radius: 12px;
+    margin: 10px;
+}
+
+.button-section {
+    padding-top: 5px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.button-primary {
+    width: 100%;
+}
+
+.club-picture {
+    width: 450px;
+    height: 350px;
+}

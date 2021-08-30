@@ -49,6 +49,7 @@ import { AllClubsComponent } from './components/all-clubs/all-clubs.component';
 import { ListPlayersComponent } from './components/user-role-components/list-players/list-players.component';
 import { EditClubComponent } from './components/edit-club/edit-club.component';
 import { EditPlayerComponent } from './components/edit-player/edit-player.component';
+import { HomeButtonCardComponent } from './components/shared/home-button-card/home-button-card.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { EditPlayerComponent } from './components/edit-player/edit-player.compon
     AllClubsComponent,
     ListPlayersComponent,
     EditClubComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    HomeButtonCardComponent
   ],
   imports: [
     BrowserModule,

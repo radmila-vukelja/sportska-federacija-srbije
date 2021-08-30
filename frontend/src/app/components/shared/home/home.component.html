@@ -1,1 +1,12 @@
-<p>home works!</p>
+<div class="container">
+
+    <div class="club-card-container">
+
+        <ng-container *ngFor="let card of homeCards">
+            <app-home-button-card [card]="card"></app-home-button-card>
+        </ng-container>
+        
+    </div>
+
+
+</div>
