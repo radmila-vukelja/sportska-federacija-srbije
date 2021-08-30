@@ -13,6 +13,7 @@ import { HomeComponent } from './components/shared/home/home.component';
 import { SeeAllClubMembersComponent } from './components/see-all-club-members/see-all-club-members.component';
 import { AllClubsUserComponent } from './components/user-role-components/all-clubs-user/all-clubs-user.component';
 import { ListPlayersComponent } from './components/user-role-components/list-players/list-players.component';
+import { EditClubComponent } from './components/edit-club/edit-club.component';
 
 const routes: Routes = [
   
@@ -33,6 +34,8 @@ const routes: Routes = [
   { path: 'user-all-clubs', component: AllClubsUserComponent },
   { path: 'user-all-club-players', component: ListPlayersComponent },
   { path: 'user-all-club-players/:id', component: ListPlayersComponent },
+  { path: 'edit-club', component: EditClubComponent },
+  { path: 'edit-club/:id', component: EditClubComponent },
 
 ];
 
