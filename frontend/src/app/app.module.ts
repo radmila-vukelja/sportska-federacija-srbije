@@ -48,6 +48,7 @@ import { AllClubsUserComponent } from './components/user-role-components/all-clu
 import { AllClubsComponent } from './components/all-clubs/all-clubs.component';
 import { ListPlayersComponent } from './components/user-role-components/list-players/list-players.component';
 import { EditClubComponent } from './components/edit-club/edit-club.component';
+import { EditPlayerComponent } from './components/edit-player/edit-player.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { EditClubComponent } from './components/edit-club/edit-club.component';
     AllClubsUserComponent,
     AllClubsComponent,
     ListPlayersComponent,
-    EditClubComponent
+    EditClubComponent,
+    EditPlayerComponent
   ],
   imports: [
     BrowserModule,

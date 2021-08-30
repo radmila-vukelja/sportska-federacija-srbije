@@ -53,9 +53,9 @@ export class AllClubsComponent implements OnInit {
     if (parameter === 'Ukloni Filter') {
       this.dataSource.data = this.oldDataSource.data;
     } else {
-      let clubs : Club[] = [];
-      for(let club of this.oldDataSource.data){
-        if(club.sportType.sport === parameter){
+      let clubs: Club[] = [];
+      for (let club of this.oldDataSource.data) {
+        if (club.sportType.sport === parameter) {
           clubs.push(club);
         }
       }
@@ -70,7 +70,6 @@ export class AllClubsComponent implements OnInit {
   addMember(id) {
     this.router.navigate(['add-player/' + id]);
   }
-
 
   getAllClubs() {
     this.clubService.getAll().subscribe(
@@ -124,15 +123,15 @@ export class AllClubsComponent implements OnInit {
     });
   }
 
-  getAllSportTypes(){
+  getAllSportTypes() {
     this.sportTypeService.getAll().subscribe(
-      data =>{
-        this.sportTypes =  data;
+      data => {
+        this.sportTypes = data;
       },
-      error =>{
+      error => {
         console.error("ERROR: ", error);
       }
     )
-  } 
+  }
 
 }
