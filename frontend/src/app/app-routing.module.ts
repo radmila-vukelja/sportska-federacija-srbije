@@ -14,10 +14,12 @@ import { SeeAllClubMembersComponent } from './components/see-all-club-members/se
 import { AllClubsUserComponent } from './components/user-role-components/all-clubs-user/all-clubs-user.component';
 import { ListPlayersComponent } from './components/user-role-components/list-players/list-players.component';
 import { EditClubComponent } from './components/edit-club/edit-club.component';
+import { AllClubsComponent } from './components/all-clubs/all-clubs.component';
+import { EditPlayerComponent } from './components/edit-player/edit-player.component';
 
 const routes: Routes = [
-  
-  { path: '', component: RegisterComponent },
+
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'locations', component: LocationsComponent },
@@ -36,7 +38,9 @@ const routes: Routes = [
   { path: 'user-all-club-players/:id', component: ListPlayersComponent },
   { path: 'edit-club', component: EditClubComponent },
   { path: 'edit-club/:id', component: EditClubComponent },
-
+  { path: 'all-clubs', component: AllClubsComponent },
+  { path: 'edit-player', component: EditPlayerComponent },
+  { path: 'edit-player/:id', component: EditPlayerComponent },
 ];
 
 @NgModule({
