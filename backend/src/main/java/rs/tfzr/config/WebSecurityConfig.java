@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        System.out.println("Security konfiguracija je zavrsena.");
         auth.userDetailsService(appUserSecurityService);
     }
 
@@ -47,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // ignore options method sent by browser
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 // ignore the static files
-                .antMatchers("/", "/login","/user/**", "/registration", "/user/registration", "/email/confirm-email", "/email/confirm-email/{code}", "/user/reset-password" ,"/user/reset-password/{email}", "/index.html", "/*.bundle.*", "/favicon.ico", "/assets/**").permitAll()
+                .antMatchers("/", "/login","/user/**", "/auth/user", "/registration", "/user/registration", "/email/confirm-email", "/email/confirm-email/{code}", "/user/reset-password" ,"/user/reset-password/{email}", "/index.html", "/*.bundle.*", "/favicon.ico", "/assets/**").permitAll()
                 // authenticate all remaining URLS
                 .anyRequest().fullyAuthenticated().and()
                 // enabling the basic authentication
